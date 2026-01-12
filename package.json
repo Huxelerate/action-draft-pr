@@ -1,0 +1,29 @@
+{
+  "name": "action-draft-pr",
+  "version": "1.0.0",
+  "description": "GitHub Action to convert a pull request to draft status",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "ncc build src/index.js -o dist --source-map --license licenses.txt",
+    "test": "echo \"No tests yet\" && exit 0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Huxelerate/action-draft-pr.git"
+  },
+  "keywords": [
+    "github",
+    "action",
+    "draft",
+    "pull-request"
+  ],
+  "author": "Huxelerate",
+  "license": "MIT",
+  "dependencies": {
+    "@actions/core": "^1.10.1",
+    "@actions/github": "^6.0.0"
+  },
+  "devDependencies": {
+    "@vercel/ncc": "^0.38.1"
+  }
+}

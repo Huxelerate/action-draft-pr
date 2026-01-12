@@ -1,0 +1,27 @@
+name: Convert to Draft on Changes Requested
+
+on:
+  pull_request_review:
+    types: [submitted]
+
+jobs:
+  convert-to-draft:
+    runs-on: ubuntu-latest
+    if: github.event.review.state == 'changes_requested'
+
+    permissions:
+      pull-requests: write
+      contents: write
+
+    steps:
+      # Note: Checkout is only required when using a local action reference (uses: ./)
+      # It is NOT needed when using the action via repository reference (uses: owner/repo@version)
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      
+      - name: Convert PR to Draft
+        # uses: Huxelerate/action-draft-pr@v1  # Use this in other repositories
+        uses: ./  # Local reference for testing in this repository
+        with:
+          pr-number: ${{ github.event.pull_request.number }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
