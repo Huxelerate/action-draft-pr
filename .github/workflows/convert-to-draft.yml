@@ -14,8 +14,12 @@ jobs:
       contents: write
 
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      
       - name: Convert PR to Draft
-        uses: Huxelerate/action-draft-pr@v1
+        # uses: Huxelerate/action-draft-pr@v1  # Use this in other repositories
+        uses: ./  # Local reference for testing in this repository
         with:
           pr-number: ${{ github.event.pull_request.number }}
           github-token: ${{ secrets.GITHUB_TOKEN }}
