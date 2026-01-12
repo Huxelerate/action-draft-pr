@@ -16,6 +16,10 @@ This action converts a pull request to draft status using the GitHub GraphQL API
 
 **Required** GitHub token with permissions to modify pull requests. Defaults to `${{ github.token }}`.
 
+**Required Permissions:**
+- `pull-requests: write` - Required to modify pull request status
+- `contents: write` - Required for GraphQL mutation operations
+
 ## Example Usage
 
 ```yaml
@@ -27,6 +31,9 @@ on:
 jobs:
   draft-pr:
     runs-on: ubuntu-latest
+    permissions:
+      pull-requests: write
+      contents: write
     steps:
       - name: Convert to Draft
         uses: Huxelerate/action-draft-pr@v1

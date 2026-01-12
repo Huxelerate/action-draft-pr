@@ -6,7 +6,7 @@ inputs:
     description: 'The pull request number to convert to draft'
     required: true
   github-token:
-    description: 'GitHub token with permissions to modify pull requests'
+    description: 'GitHub token with permissions to modify pull requests. Requires pull-requests:write and contents:write permissions.'
     required: true
     default: ${{ github.token }}
 runs:
