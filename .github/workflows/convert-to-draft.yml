@@ -11,6 +11,7 @@ jobs:
 
     permissions:
       pull-requests: write
+      contents: write
 
     steps:
       - name: Convert PR to Draft
