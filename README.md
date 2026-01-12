@@ -18,7 +18,7 @@ This action converts a pull request to draft status using the GitHub GraphQL API
 
 **Required Permissions:**
 - `pull-requests: write` - Required to modify pull request status
-- `contents: write` - Required for GraphQL mutation operations
+- `contents: write` - Required for the GraphQL mutation to operate
 
 ## Example Usage
 
