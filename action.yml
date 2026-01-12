@@ -1,0 +1,17 @@
+name: 'Convert PR to Draft'
+description: 'Converts a pull request to draft status if it is not already a draft'
+author: 'Huxelerate'
+inputs:
+  pr-number:
+    description: 'The pull request number to convert to draft'
+    required: true
+  github-token:
+    description: 'GitHub token with permissions to modify pull requests'
+    required: true
+    default: ${{ github.token }}
+runs:
+  using: 'node20'
+  main: 'dist/index.js'
+branding:
+  icon: 'edit-3'
+  color: 'gray-dark'
