@@ -31865,7 +31865,7 @@ async function run() {
 
     // Get the PR node ID for GraphQL mutation
     const prNodeId = pullRequest.node_id;
-    core.info(`PR node ID: ${prNodeId}`);
+    core.debug(`PR node ID: ${prNodeId}`);
 
     // Use GraphQL mutation to convert PR to draft
     const mutation = `
