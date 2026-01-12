@@ -1,0 +1,21 @@
+name: Convert to Draft on Changes Requested
+
+on:
+  pull_request_review:
+    types: [submitted]
+
+jobs:
+  convert-to-draft:
+    runs-on: ubuntu-latest
+    if: github.event.review.state == 'changes_requested'
+
+    permissions:
+      pull-requests: write
+      contents: write
+
+    steps:
+      - name: Convert PR to Draft
+        uses: Huxelerate/action-draft-pr@v1
+        with:
+          pr-number: ${{ github.event.pull_request.number }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
