@@ -23,19 +23,23 @@ This action converts a pull request to draft status using the GitHub GraphQL API
 ## Example Usage
 
 ```yaml
-name: Convert PR to Draft
+name: Convert to Draft on Changes Requested
+
 on:
-  pull_request:
-    types: [opened, reopened]
+  pull_request_review:
+    types: [submitted]
 
 jobs:
-  draft-pr:
+  convert-to-draft:
     runs-on: ubuntu-latest
+    if: github.event.review.state == 'changes_requested'
+
     permissions:
       pull-requests: write
       contents: write
+
     steps:
-      - name: Convert to Draft
+      - name: Convert PR to Draft
         uses: Huxelerate/action-draft-pr@v1
         with:
           pr-number: ${{ github.event.pull_request.number }}
